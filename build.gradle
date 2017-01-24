@@ -19,6 +19,13 @@ apply plugin: 'com.moowork.node'
 apply plugin: 'io.github.swagger2markup'
 apply plugin: 'org.asciidoctor.convert'
 
+node {
+  version = '5.8.0'
+  npmVersion = '3.8.0'
+  download = true
+  // distBaseUrl = Custom artifactory location here for node/npm.
+}
+
 ext {
     gitRepoUri = project.hasProperty('repo') ? project.getProperty('repo') : 'https://github.com/monsterstack/discovery-service.git'
     gitRepoBranch = project.hasProperty('branch') ? project.getProperty('branch') : 'origin/development' // a commit hash, or tag name, or branch name (with remote prefix, like 'origin/master')
