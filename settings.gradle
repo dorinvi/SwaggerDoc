@@ -1,0 +1,2 @@
+gradle.ext.repo="https://github.com/monsterstack/tenant-service.git"
+gradle.ext.branch="origin/development"

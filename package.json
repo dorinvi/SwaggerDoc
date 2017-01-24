@@ -1,0 +1,12 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src2html.js",
+  "scripts": {
+    "start": "node tool.js"
+  },
+  "dependencies": {
+    "swagger-jsdoc": "^1.8.4"
+  }
+}
