@@ -39,11 +39,11 @@ task cleanAll (type: Delete) {
   delete buildDir, 'node_modules'
 }
 
-task cleanRepo (type: Delete) {
-    delete gitRepoDir
+task cleanBuild (type: Delete) {
+    delete buildDir
 }
 
-task checkoutRepo(type: com.palominolabs.gradle.task.git.clone.GitCloneTask, dependsOn: cleanRepo) {
+task checkoutRepo(type: com.palominolabs.gradle.task.git.clone.GitCloneTask, dependsOn: cleanBuild) {
     dir = file(gitRepoDir)
     uri = gitRepoUri
     treeish = gitRepoBranch
