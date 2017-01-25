@@ -89,7 +89,7 @@ task prepareDeployment(dependsOn: asciidoctor) << {
   def serviceId = json.info.title.trim().replaceAll("\\s","") + '_' + json.info.version.trim()
 
   file( jsonFile ).renameTo( "${buildDir}/${serviceId}.json" )
-  file( "${asciiDir}/html5/index.html" ).renameTo( "${asciiDir}/html5/${serviceId}.json" )
+  file( "${asciiDir}/html5/index.html" ).renameTo( "${asciiDir}/html5/${serviceId}.html" )
 }
 
 defaultTasks 'prepareDeployment'
