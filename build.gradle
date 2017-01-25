@@ -82,4 +82,14 @@ asciidoctor {
     ]
 }
 
-defaultTasks 'asciidoctor'
+import groovy.json.JsonSlurper
+
+task prepareDeployment(dependsOn: asciidoctor) << {
+  def json = new JsonSlurper().parseText( new File( jsonFile ).getText() )
+  def serviceId = json.info.title.trim().replaceAll("\\s","") + '_' + json.info.version.trim()
+
+  file( jsonFile ).renameTo( "${buildDir}/${serviceId}.json" )
+  file( "${asciiDir}/html5/index.html" ).renameTo( "${asciiDir}/html5/${serviceId}.json" )
+}
+
+defaultTasks 'prepareDeployment'

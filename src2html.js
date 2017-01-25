@@ -3,6 +3,8 @@ var extension = '.js';
 var fs = fs || require('fs');
 var path = path || require('path');
 
+var service = require("./build/repo/api/swagger/info.js");
+
 const getAllFiles = (dir, filelist = []) => {
     fs.readdirSync(dir).forEach( file => {
         var dirFile = path.join(dir,file);
@@ -31,8 +33,8 @@ var swaggerJSDoc = require('swagger-jsdoc');
 var options = {
   swaggerDefinition: {
     info: {
-      title: 'Swagger JSON Doc', // Title (required)
-      version: '1.0.0', // Version (required)
+      title: service.info.title,
+      version: service.info.version
     },
   },
   apis: jsFiles // Path to the API docs
